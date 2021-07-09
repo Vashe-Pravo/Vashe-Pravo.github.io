@@ -27,7 +27,19 @@
             .item_name {
                 font-size: 18px;
             }
+            
+            a:link {
+                color: darkblue;
+            }
 
+            a:hover{
+                color: #00B5B5;
+            }
+
+            a:visited{
+                color: slateblue;
+            }
+            
         </style>
 
         <header>
@@ -38,7 +50,7 @@
 
         <br>
         
-        <h4>Последние новости российского права </h4>
+        <h3>Последние новости российского права </h3>
         <div id="rss"></div>
 
         <br><br><br><br> 
@@ -87,7 +99,7 @@
             var mydata = JSON.parse(data);
             
             for(var i=0; i<mydata.size; i++){
-                document.getElementById('rss').innerHTML += '<p><a href=' + mydata.link[i] + '>' + mydata.title[i] + '</a></p>';
+                document.getElementById('rss').innerHTML += '<h4><a target="_blank" href=' + mydata.link[i] + '>' + mydata.title[i] + '</a></h4>';
             }
             
         </script>
