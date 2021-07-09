@@ -5,10 +5,11 @@
         <title>Юридическая помощь</title>
         <link rel="icon" href="logo.jpg">
         <link name="Keywords", content="Юрист, адвокат, помощь, консультация">
+        <script type="text/javascript" src="\data.json"></script>        
     </head>
 
     <body style="background-color: oldlace;">
-        
+       
         <style>
             header {
                 width: 100%;
@@ -36,13 +37,17 @@
         </header>
 
         <br>
+        
+        <h4>Последние новости русского права </h4>
+        <div id="rss"></div>
+
+        <br><br><br><br> 
 
         <details open>
             <summary class="list_name">Для физических лиц</summary>
             <ul class="item_name">
                 <li>Представительство в суде</li>
                 <li>Споры о ДТП</li>
-                <li>Банкротство</li>
                 <li>Составление и анализ договоров</li>
                 <li>Споры с государственными органами</li>
                 <li>Трудовые споры</li>
@@ -77,7 +82,16 @@
         <p>Email somemail@mail.sru</p>
 
         <hr>
-
+        
+        <script>
+            var mydata = JSON.parse(data);
+            
+            for(var i=0; i<mydata.size; i++){
+                document.getElementById('rss').innerHTML += '<p><a href=' + mydata.link[i] + '>' + mydata.title[i] + '</a></p>';
+            }
+            
+        </script>
+        
     </body>
 
 </html>
